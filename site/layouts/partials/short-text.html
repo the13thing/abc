@@ -1,0 +1,25 @@
+<div class="bg-grey-1 pt4 center">
+    <div class="ph3 mw7 center justify ">
+      <div class="shortText" >{{.text}} </div>
+    <h2 class="f2 b lh-title mb2">{{.heading}}</h2>
+</div>
+<script>
+  $(document).ready(function(){
+    $('.shortText').each(function(){
+  $(this).html($(this).text().replace(/([^\a-\z]|\w)/g, "<span class='letter'>$&</span>"));
+});
+
+anime.timeline({loop: false})
+  .add({
+    targets: '.shortText .letter',
+    scale: [4,1],
+    opacity: [0,1],
+    translateZ: 0,
+    easing: "easeOutExpo",
+    duration: 250,
+    delay: function(el, i) {
+      return 10*i;
+    }
+  })
+  });
+</script>

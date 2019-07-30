@@ -1,0 +1,219 @@
+
+/* --------------------------- Carousel --------------------------- */
+.carousel{
+  margin-top: 2%;
+} 
+
+.carousel-control-next{
+  width: 10%;
+  z-index: 5000;
+  background: linear-gradient(90deg, rgba(255,255,255,0) 20%, rgba(0,0,0,0.2) 100%);}
+ 
+.carousel-control-prev {
+  width: 10%;
+  z-index: 5000;
+  background: linear-gradient(90deg, rgba(0,0,0,0.2) 20%, rgba(255,255,255,0) 100%);}
+
+.carousel-caption {
+  height: 10rem;
+  bottom: 2rem;
+  z-index: 10;
+  left: 0;
+  right: 0;
+  padding: 1.25rem 2rem;
+  background-color: rgba(255,255,255, 0.5);
+  color: inherit;
+}
+
+.carousel-caption h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+
+}
+
+.carousel-caption p {
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.carousel-caption .btn {
+  font-size: .85rem;
+  line-height: 1.2;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 100px;
+  width: 100px;
+}
+
+.carousel-indicators li {
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  margin: 10px;
+  text-indent: 0;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--white);
+}
+.carousel-indicators .active {
+  width: 2em;
+  height: 2em;
+  margin: 10px;
+  background-color: rgba(0,0,0,0.4);
+}
+/* ---------------------- Breakpoints for the Carousel ---------------------- */
+
+/* --- EXtra small devices like phones - less than 360px --- */
+@media (max-width: 359.9px) {
+  .contmin {
+    max-width: 100%;
+  }
+  .carousel-item {
+    height: 8rem;
+  }
+
+  .carousel-caption {
+      height: 6rem;
+      bottom: .75rem;
+  }
+
+  .carousel-caption h2 {
+    font-size: .65rem;
+    font-weight: bold;
+  }
+  .carousel-caption p {
+    font-size: .6rem;
+    font-weight: bold;
+    line-height: 1;
+  }
+  .carousel-caption .btn {
+    font-size: .5rem;
+    line-height: 1;
+  }
+}
+
+/* --- Small devices like phones - starting at 360px ---*/
+@media (min-width: 360px) {
+  .contmin {
+    max-width: 100%;
+  }
+  .carousel-item {
+    height: 12rem;
+  }
+  .carousel-caption {
+    height: 6rem;
+    bottom: 0.75rem;
+  }
+  .carousel-caption h2 {
+    font-size: .7rem;
+    font-weight: bold;
+  }
+  .carousel-caption p {
+    font-size: .5rem;
+    font-weight: bold;
+    line-height: 1.2;
+  }
+}
+
+/* --- Medium devices like tablets - starting at 600px ---*/
+@media (min-width: 600px) {
+  .contmin {
+    max-width: 100%;
+  }
+  .carousel-item {
+    height: 20rem;
+  }
+  .carousel-caption {
+    height: 9rem;
+  }  
+}
+
+/* --- Medium devices like tablets - starting at 758px ---*/
+@media (min-width: 758px) {
+  .contmin {
+    max-width: 90%;
+  }
+  .carousel-item {
+    height: 24rem;
+  }
+  .carousel-caption {
+    height: 10rem;
+  }  
+}
+
+/* --- Tablets, Laptops - starting at 1024px ---*/
+@media (min-width: 1024px) {
+  .contmin {
+    max-width: 90%;
+  }
+  .carousel-item {
+    height: 26rem;
+  }
+}
+
+/* --- Tablets, Laptops - starting at 1280px ---*/
+@media (min-width: 1280px) {
+  .contmin {
+    max-width: 80%;
+  }
+  .carousel-item {
+    height: 26rem;
+  }
+  .carousel-caption {
+    padding-left: 7rem;
+    padding-right: 7rem;
+  }
+}
+
+/* --- Laptops, Desktops - starting at 1366px ---*/
+@media (min-width: 1366px) {
+  .contmin {
+    max-width: 80%;
+  }
+  .carousel-caption {
+    padding-left: 7.5rem;
+    padding-right: 7.5rem;
+  }  
+}
+
+/* --- Desktops - starting at 1536px ---*/
+@media (min-width: 1536px) {
+  .contmin {
+    max-width: 70%;
+  }
+  .carousel-caption {
+    padding-left: 8rem;
+    padding-right: 8rem;
+  }  
+}
+
+/* --- Desktops - starting at 1680px ---*/
+@media (min-width: 1680px) {
+  .contmin {
+    max-width: 70%;
+  }
+  .carousel-caption {
+    padding-left: 8.5rem;
+    padding-right: 8.5rem;
+  }  
+}
+
+/* --- Desktops - starting at 1920px ---*/
+@media (min-width: 1920px) {
+  .contmin {
+    max-width: 60%;
+  }
+  .carousel-caption {
+    padding-left: 9rem;
+    padding-right: 9rem;
+  }  
+  .carousel-caption p {
+    font-size: 1rem;
+    line-height: 1.2;
+  }
+}
+
+/* --------------------------- Carousel END --------------------------- */

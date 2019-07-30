@@ -1,0 +1,13 @@
+<div class="ph2 pv2 mt1 bg-grey-4 hashModalLink">
+        {{if .nolink}}
+        <span><h2>{{.text}}</h2></span>
+        {{else}}
+        <a href="{{ .url }}" class="raise {{ .class }} white"><h2>{{.text}}</h2></a>
+        {{end}}
+        </div>
+
+<script>
+        $(document).ready(function(e){
+                $('.goBack').attr('href','javascript:history.back()')
+        });
+</script>        

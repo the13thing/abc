@@ -1,0 +1,71 @@
+<div id="{{.key}}Carousel" class="carousel slide pv4" data-ride="carousel" data-interval="false">
+    <div class="carousel-inner">
+        {{ range .carouselslides}}
+        <div class="carousel-item {{if .first}}active{{end}}">
+            {{ if .image}}
+                <img class="d-block h-100 center" src="{{.image}}" alt="">
+            {{ end }}
+            {{ if .url }}
+                {{.url | safeHTML}}
+            {{ end }}
+            {{ if .heading }}
+            <div class="container">
+                <div class="carousel-caption text-left">
+                    <h1 class="b f3-l ">{{.heading}}</h1>
+                    <p class="">{{.text}}</p>
+                </div>
+            </div>
+            {{end}}
+        </div>
+        {{end}}
+    </div>
+    <a class="carousel-control-prev" href="#{{.key}}Carousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#{{.key}}Carousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('.carousel').each(function(index,item){
+            var $this = $(this);
+            $this.find('.carousel-inner .carousel-item:first').addClass('active');
+        });
+        /********CALLS*********/
+        hideCarouselIndicators();
+        $('.carousel').on('slid', '', hideCarouselIndicators); // on carousel move
+        $('.carousel').on('slid.bs.carousel', '', hideCarouselIndicators); // on carousel move
+
+        $(document).bind('keyup', function (e) {
+            if (e.which == 39) {
+                $('.carousel').carousel('next');
+            } else if (e.which == 37) {
+                $('.carousel').carousel('prev');
+            }
+        });
+    });
+
+    function hideCarouselIndicators() {
+        $('.carousel').each(function(index,item){
+            var $this = $(this);
+            if ($this.find('.carousel-inner .carousel-item:first').hasClass('active') && $this.find('.carousel-inner .carousel-item').length > 1) {
+                $this.children('.carousel-control-prev').hide();
+                $this.children('.carousel-control-next').show();
+            } else if ($this.find('.carousel-inner .carousel-item:last').hasClass('active') && $this.find('.carousel-inner .carousel-item').length > 1) {
+                $this.children('.carousel-control-prev').show();
+                $this.children('.carousel-control-next').hide();
+            } else if ($this.find('.carousel-inner .carousel-item').length > 1){
+                $this.children('.carousel-control-prev').show();
+                $this.children('.carousel-control-next').show();
+            }
+            else {
+                $this.children('.carousel-control-prev').hide();
+                $this.children('.carousel-control-next').hide();
+            }
+        });
+    }
+</script>

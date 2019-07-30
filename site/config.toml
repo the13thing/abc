@@ -1,0 +1,15 @@
+languageCode = "pt-pt"
+DefaultContentLanguage = "pt"
+defaultContentLanguageInSubdir = true
+title = "Aveiro Business Center"
+copyright = "2011-2019 © RLV"
+
+[languages] 
+    [languages.pt]
+    weight = 1
+    languageCode = "pt-pt"
+    dateFormat = "2 January 2006"    
+    [languages.en]
+    weight = 2
+    languageCode = "en-us"
+    dateFormat = "January 2 2006"

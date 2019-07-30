@@ -1,0 +1,44 @@
+<footer class="bg-black ph3 pv4 white">
+
+	<div class="mw7 center pt3">
+
+		<div class="measure-narrow center mb4">
+
+			<img src="/img/abc/logo.png" alt="ABC logo" class="db w4 center mb4 br0">
+			{{ $data := index .Site.Data .Site.Language.Lang }}
+			<p class="f3 lh-title light-gray b tc mb2">{{ $data.resources.footer.title }}</p>
+			<p>{{ $data.resources.footer.text }}</p>
+
+			{{ partial "newsletter-form" $data.resources.footer }}
+
+		</div>
+
+		<div class="socialMediaDiv">
+				<ul class="mb3">
+						{{ partial "social-icon" (dict "link" "https://www.facebook.com/aveirobusinesscenter" "svg" "icons-facebook") }}
+						{{ partial "social-icon" (dict "link" "http://instagram.com/aveirobusinesscenter.oficial" "svg" "icons-instagram") }}
+				</ul>
+		</div>
+
+		<div class="socialMediaDiv">
+				<ul class="mb3">
+						<li><a href="{{ $data.resources.footer.urlprivacy }}" class="link">{{ $data.resources.footer.privacy }}</a></li>
+				</ul>
+		</div>
+		<div class="socialMediaDiv">
+				<ul class="mb3">
+						<li><a href="/pt" class="link">pt</a> | 
+						<a href="/en" class="link">en</a></li>
+				</ul>
+		</div>
+	</div>
+
+</footer>
+
+{{ partial "svg" $data.resources.footer }}
+
+<script src="/app.js"></script>
+
+</body>
+
+</html>

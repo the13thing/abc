@@ -1,0 +1,271 @@
+<div class="section pv1 {{ .resources.services.class }}" id="modal-grid">
+        
+    <div class="container">
+            <div class="bg-off-white pv2 mv3-ns center">
+                    <div class="ph3 mw7 center">
+                        <h2 class="f2 b lh-title mb2 modalTitle black">{{.resources.services.title}}</h2>
+                </div>
+            </div>
+            {{ range .services.rows }}
+            <div class="row">
+            {{ range .items }}
+
+        <div class="col m6 s12">
+          <a class="modal-trigger modalLinks">
+            <div class="bg-off-white content-block z-depth-3 " >
+              <div class="img-wrap w-50 center split {{.key}}">
+                <img src="{{.image}}"/>
+              </div>
+              <div class="pad center white split {{.key}}">
+                <div class="caption">{{.heading}}</div>
+              </div>
+            </div>
+          </a>
+          <div id="{{.key}}" class="modal">
+              <div class="modal-content">
+                  <div class="modal-body">
+                <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close"><span class="" aria-hidden="true">&times;</span></button>
+                  {{if .carouselslides}}
+                    {{partial "carousel" .}}
+                  {{else}}
+                  <div class="col s12 l5 hide-on-med-and-down">
+                      <div class="img-wrap contentImage">
+                          <img src="{{.image}}" />
+                      </div>
+                  </div>
+                  <div class="col s12 l7">
+                      <p>{{.content}}</p>
+                  </div>
+                  {{end}}
+                  {{if .hasavailableoffices}}
+                  {{range .availableOffices}}
+                  {{ partial "modalbtn" (dict "url" .url "text" .title)}}
+                  {{end}}
+                  {{ else }}
+                  {{range .availableOffices}}
+                  {{ partial "modalbtn" (dict "text" .nooffice "nolink" "true")}}
+                  {{end}}
+                  {{end}}
+                  {{if .hasavailableoffices}}
+                  {{range .availableOffices}}
+                  
+
+                  <div id="{{.id}}" class="modal">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                          <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close"><span class="" aria-hidden="true">&times;</span></button>
+                            {{if .carouselslides}}
+                            {{partial "carousel" .}}
+                            {{else}}
+                            <div class="col s12 l5 hide-on-med-and-down">
+                                <div class="img-wrap contentImage">
+                                    <img src="{{.image}}" />
+                                </div>
+                            </div>
+                            <div class="col s12 l7">
+                                <p>{{.content}}</p>
+                            </div>
+                            {{end}}
+                            {{ partial "modalbtn" (dict "url" .urlBack "text" .back)}}
+                            {{ if .intro }}
+                              {{ partial "4-up" .intro }}
+                            {{end}}
+
+                        </div>
+                      </div>
+                    </div>
+                  {{end}}
+                  {{end}}
+                  
+                  {{if .pdf}}
+                  {{ partial "modalbtn" (dict "url" .pdf.url "text" .pdf.title)}}
+                  <div id="{{.pdf.idDiv}}" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="pv3">
+                                <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close"><span class="" aria-hidden="true">&times;</span></button>
+                            </div>
+                      <iframe class="pdfIframe" src="https://docs.google.com/viewer?srcid={{.pdf.idPdf}}&pid=explorer&efh=false&a=v&chrome=false&embedded=true"></iframe>
+
+                      <div class="mb4 mt4 bg-off-white ph4 pv4">
+                            <h4 class="f3 b lh-title mb3 tc">{{.pdf.contactform.dropline}}</h4>
+                          
+                            <form name="RestaurantForm" method="POST" netlify action="{{.pdf.contactform.action}}">
+                              <div class="flex-l mhn1-l">
+                                <!-- Name -->
+                                <div class="ph1-l w-50-l">
+                                  <fieldset>
+                                    <input type="text" id="nameRestaurant" name="nameRestaurant" placeholder="{{.pdf.contactform.name}}" class="w-100 mb2" required>
+                                    <label for="nameRestaurant">{{.pdf.contactform.name}}</label>
+                                  </fieldset>
+                                </div>
+                                <!-- Email -->
+                                <div class="ph1-l w-50-l">
+                                  <fieldset>
+                                    <input type="email" id="emailRestaurant" name="emailRestaurant" placeholder="{{.pdf.contactform.email}}" class="w-100 mb2" required>
+                                    <label for="emailRestaurant">{{.pdf.contactform.email}}</label>
+                                  </fieldset>
+                                </div>
+                                <div class="ph1-l w-50-l">
+                                        <fieldset>
+                                          <input type="number" id="paxRestaurant" name="paxRestaurant" placeholder="{{.pdf.contactform.pax}}" class="w-100 mb2" required>
+                                          <label for="paxRestaurant">{{.pdf.contactform.pax}}</label>
+                                        </fieldset>
+                                      </div>
+                              </div>
+                              <!-- Meals -->
+                              <fieldset>
+                                <textarea id="mealsRestaurant" name="mealsRestaurant" placeholder="{{.pdf.contactform.mealsplaceholder}}" rows="2" cols="80" class="w-100"></textarea>
+                                <label for="mealsRestaurant">{{.pdf.contactform.meals}}</label>
+                              </fieldset>
+                              <!-- Button -->
+                              <div class="tc">
+                                <button type="submit" class="btn w-100 w-auto-ns raise">{{.pdf.contactform.submit}}</button>
+                              </div>
+                            </form>
+                          </div>
+                          
+
+                      {{ partial "modalbtn" (dict "url" .pdf.urlBack "text" .pdf.back)}}
+                    </div>
+                  </div>
+                </div>
+                  {{end}}
+                  {{ if .content }}
+                  <div class="center">
+                      <div class="ph3">
+                          <h2 class="lh-title mb2 justify">{{.title}}</h2>
+                      </div>
+
+                      <div class="ph3 pv2 f6 justify">{{ .content | safeHTML }}</div>
+                  </div>
+                  {{else}}
+                  {{ partial "4-up" .intro }}
+                  {{ end }}
+              </div>
+            </div>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+      {{end}}
+    </div>
+  </div>
+  <script>
+      $(document).ready(function () {
+        if (window.performance) {
+                if (performance.navigation.type == 1) {
+                    window.history.pushState("/", "/", '/');
+                }       
+            }   
+          /********EVENTS*********/
+        $('#modal-grid .modal-trigger').each(function(index,item){
+            $(this).click(function(e){
+                $(this).siblings('.modal').modal({
+                    opacity: .5,
+                    close: function () {$(this).destroy()},
+                    height: 50,
+                    width: 50,
+                    dismissable: true,
+                    backdrop: 'static'
+                    // ready: function() {
+                    // console.log("modal ready")
+                    // }
+                });
+                $(".modal-backdrop").click(function(e){$('.modal').modal('hide')});
+            });
+        });
+        $('.modal-close').click(function(e){
+            $('.modal').modal('hide');
+        });
+
+        //for all classes starting with available do the following:
+        $('*[id^="available"]').each(function(index, item){
+            var element = $(item);
+            $(item).remove()
+                $('.row').eq(0).append(element);
+                element.modal({
+                    opacity: .5,
+                    close: function () {$(this).destroy()},
+                    height: 50,
+                    width: 50,
+                    dismissable: true,
+                    backdrop: 'static'
+                    // ready: function() {
+                    // console.log("modal ready")
+                    // }
+                });
+                element.modal('hide');
+                $(".modal-backdrop").click(function(e){$('.modal').modal('hide')});
+        });
+        openModalFromNav();
+    $('.hashModalLink a').click(openModalFromNav);
+    animateContainer();
+        /********FUNCTIONS*********/
+
+        function decamelize(str, separator){
+            separator = typeof separator === 'undefined' ? '_' : separator;
+
+            return str
+                .replace(/([a-z\d])([A-Z])/g, '$1' + separator + '$2')
+                .replace(/([A-Z]+)([A-Z][a-z\d]+)/g, '$1' + separator + '$2')
+                .toLowerCase();
+        };
+
+        function openModalFromNav(e){
+            $('.modal').modal('hide')
+            var query = e ? $(e.delegateTarget).attr('href') : false;
+            if (query) {
+                query = query.substring(query.lastIndexOf("/")+1);
+                var jumpToAnchor = $(e.delegateTarget).parents(".jumpToAnchor");
+                if (jumpToAnchor.length > 0){
+                    var anchor =  query.substring(query.indexOf("#")+1);
+                    anchor = decamelize(anchor,"_").split("_")[0];
+                    $(document).scrollTop($('.' + anchor).offset().top );  
+                }
+                $(query).modal('show');
+            }
+            else 
+            if (window.location.href.indexOf("#") > 0) {
+                query = window.location.href.substring(window.location.href.indexOf("#")+1);
+                if($('.dropdown').find('.jumpToAnchor').find( '#' + query)){
+                    var anchor = '.' + query.substring(query.indexOf("#")+1);
+                    anchor = decamelize(anchor,"_").split("_")[0];
+                    $(document).scrollTop($(anchor).offset().top -100 );  
+                }
+                $('#' + query).modal('show');
+            }
+            $(".modal-backdrop").click(function(e){$('.modal').modal('hide')});
+
+        }
+
+        function animateContainer () {
+            $('.modalTitle').each(function(){
+                $(this).html($(this).text().replace(/([^\a-\z]|\w)/g, "<span class='letter'>$&</span>"));
+            });
+            anime({
+                targets: '.modalTitle .letter',
+                scale: [4,1],
+                opacity: [0,1],
+                easing: "easeOutExpo",
+                duration: 550,
+                delay: function(el, i) {
+                    return 60*i;
+                }
+            })
+            var delay = 1000,
+                factor = 1.15;
+            $('.col .split').each(function(index,item){
+                var classesSplit = "." + $(this).attr('class').split(" ")[$(this).attr('class').split(" ").length -1];
+                anime({
+                    targets: classesSplit,
+                    scale: [4,1],
+                    opacity: [0,1],
+                    easing: "easeOutExpo",
+                    duration: 1000 + delay,
+                });
+                delay *= factor;
+            });
+        }
+    });
+  </script>

@@ -1,0 +1,64 @@
+---
+logo: /img/abc/logoFull.png
+logoUrl: /en
+nav:
+  - text: "About us"
+    value: "/en/about"
+    dropdown: false
+  - text: "Services"
+    value: "services"
+    dropdown: true
+    class: "jumpToAnchor"
+    items:
+     - text: Offices
+       value: "/en/#servicesOffice"
+     - text: Space Rental
+       value: "/en/#servicesSpace"
+     - text: Virtual Offices
+       value: "/en/#servicesVirtualOffice"
+     - text: Event Planning
+       value: "/en/#servicesEvent"
+     - text: Support Services
+       value: "/en/#servicesSupport"
+     - text: Restaurant
+       value: "/en/#servicesRestaurant"
+  - text: "Companies"
+    value: "/en/companies"
+    dropdown: false
+  - text: "News"
+    value: "/en/news"
+    dropdown: false
+  - text: "Contacts"
+    value: "/en/contact"
+    dropdown: false
+footer:
+  action: /en/success
+  title: Subscribe our newsletter!
+  text: Get to know all the news about Aveiro Business Center!
+  email: Your email
+  submit_email: Email
+  submit: Submit
+  privacy: Privacy Policy
+  urlprivacy: /en/privacy
+  facebook: https://www.facebook.com/aveirobusinesscenter
+  instagram: http://instagram.com/aveirobusinesscenter.oficial
+services:
+    heading: Services
+    title: Get to know our services!
+    class: services
+resources:
+  back: "Back"
+  news: "News"
+  readmore: "Read more"
+  next: Next
+  previous: Previous
+  close: Close
+contactform:
+  action: /en/success
+  dropline: 'Contact us'
+  name: 'Name'
+  email: 'Email'
+  message: 'Message'
+  messageplaceholder: 'Your message'
+  submit: 'Submit'
+---

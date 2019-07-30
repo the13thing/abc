@@ -1,0 +1,24 @@
+{{ define "main" }}
+
+<section class="blog-single section">
+    <div class="container">
+        <div class="row">
+            <div class="mw6 center">
+                    {{ $data := index .Site.Data .Site.Language.Lang }}
+                {{ partial "modalbtn" (dict "url" "/" "text" $data.resources.resources.back "class" "goBack" )}}
+                <img src="{{ with .Params.image }}{{ . | absURL }}{{ end }}" class="mb-3 mw6 center dropshadow" alt="Post-Image">
+                <h2 class="f2">{{ .Title }}</h2>
+                <div class="post-meta mb-5">
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <span class="f6-m">{{ .Date.Format .Site.Params.dateFormat }}</span>
+                        </li>
+                    </ul>
+                </div>
+                {{ .Content }}
+            </div>
+        </div>
+    </div>
+</section>
+
+{{ end }}

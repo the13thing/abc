@@ -1,0 +1,10 @@
+<form name="newsletterForm" method="POST" class="flex-ns mb3 pt2" action="{{.action}}" netlify>
+
+  <fieldset class="flex-auto mb2 mb0-ns mr2-ns" name="newsletter" action="newsletter-subscribe">
+    <input type="email" id="emailNewsletter" placeholder="{{ .email }}" class="w-100" name="emailNewsletter" required>
+    <label for="emailNewsletter">{{ .submit_email }}</label>
+  </fieldset>
+
+  <button class="btn mb3 w-100 w-auto-ns mb0-ns raise" type="submit">{{ .submit }}</button>
+
+</form>

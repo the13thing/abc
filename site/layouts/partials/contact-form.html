@@ -1,0 +1,33 @@
+<!-- Contact -->
+<div class="mb4">
+  <h4 class="f3 b lh-title mb3 tc">{{.contactform.dropline}}</h4>
+
+  <form name="contactForm" method="POST" netlify action="{{.contactform.action}}">
+    <div class="flex-l mhn1-l">
+      <!-- Name -->
+      <div class="ph1-l w-50-l">
+        <fieldset>
+          <input type="text" id="nameContact" name="nameContact" placeholder="{{.contactform.name}}" class="w-100 mb2" required>
+          <label for="nameContact">{{.contactform.name}}</label>
+        </fieldset>
+      </div>
+      <!-- Email -->
+      <div class="ph1-l w-50-l">
+        <fieldset>
+          <input type="email" id="emailContact" name="emailContact" placeholder="{{.contactform.email}}" class="w-100 mb2" required>
+          <label for="emailContact">{{.contactform.email}}</label>
+        </fieldset>
+      </div>
+    </div>
+
+    <!-- Message -->
+    <fieldset>
+      <textarea id="messageContact" name="messageContact" placeholder="{{.contactform.messageplaceholder}}" rows="8" cols="80" class="w-100" required></textarea>
+      <label for="messageContact">{{.contactform.message}}</label>
+    </fieldset>
+    <!-- Button -->
+    <div class="tc">
+      <button type="submit" class="btn w-100 w-auto-ns raise">{{.contactform.submit}}</button>
+    </div>
+  </form>
+</div>

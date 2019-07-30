@@ -1,0 +1,11 @@
+{{ define "main" }}
+
+{{ partial "jumbotron" (dict "imageUrl" .Params.image "title" .Params.jumbotitle "subtitle" .Params.jumbosubtitle) }}
+
+{{ partial "short-text" .Params.blurb}}
+
+{{ $data := index .Site.Data .Site.Language.Lang }}
+
+{{ partial "modal-grid" (dict "services" .Params.services "resources"  $data.resources)}}
+
+{{ end }}

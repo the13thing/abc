@@ -1,0 +1,593 @@
+backend:
+  name: git-gateway
+
+media_folder: "site/static/img/uploads" # Folder where user uploaded files should go
+public_folder: "/img/uploads"
+
+collections: # A list of collections the CMS should be able to edit
+  - name: "home"
+    label: "Home"
+    files:
+      - file: "site/content/_index.pt.md"
+        label: "Home Page PT"
+        name: "homePT"
+        fields:
+          - {label: Title, name: title, widget: string, required: false}
+          - {label: Image Title, name: jumbotitle, widget: string, required: false}
+          - {label: Image Subtitle, name: jumbosubtitle, widget: string, required: false}
+          - {label: Subtitle, name: subtitle, widget: string, required: false}
+          - {label: Image, name: image, widget: image, required: false}
+          - {label: "Blurb", name: blurb, widget: object, fields: [
+              {label: "Text", name: "text", widget: "text", required: false}]}
+          - label: Services
+            name: services
+            widget: object
+            required: false
+            fields:
+              - label: Linhas
+                name: rows
+                widget: list
+                required: false
+                fields:
+                  - label: Serviços
+                    name: items
+                    widget: list
+                    required: false
+                    fields: 
+                      - label: Serviço
+                        name: heading
+                        widget: text
+                        required: false
+                      - label: Imagem
+                        name: image
+                        widget: image
+                        required: false
+                      - label: key
+                        name: key
+                        widget: string
+                        required: false
+                      - label: Slideshow
+                        name: carouselslides
+                        widget: list
+                        required: false
+                        fields: 
+                          - label: Imagem
+                            name: image
+                            widget: image
+                            required: false
+                      - label: Conteúdo
+                        name: content
+                        widget: text
+                        required: false
+                      - label: Conteúdo Grelha
+                        name: intro
+                        widget: object
+                        required: false
+                        fields:
+                          - label: Conteúdo
+                            name: blurbs
+                            widget: list
+                            required: false
+                            fields:
+                              - label: Descrição
+                                name: text
+                                widget: text
+                                required: false
+                              - label: Imagem
+                                name: image
+                                widget: image
+                                required: false
+                                
+                      - label: Tem subserviços 
+                        name: hasavailableoffices
+                        widget: boolean
+                        required: false
+                      - label: SubServiço
+                        name: availableOffices
+                        widget: list
+                        required: false
+                        fields: 
+                          - label: SubServiço
+                            name: title
+                            widget: text
+                            required: false
+                          - label: Sem SubServiço
+                            name: nooffice
+                            widget: text
+                            required: false
+                          - label: Slideshow
+                            name: carouselslides
+                            widget: list
+                            required: false
+                            fields: 
+                              - label: Heading
+                                name: heading
+                                widget: string
+                                required: false
+                              - label: Imagem
+                                name: image
+                                widget: image
+                                required: false
+                          - label: Conteúdo
+                            name: content
+                            widget: text
+                            required: false
+                          - label: Conteúdo Grelha
+                            name: intro
+                            widget: object
+                            required: false
+                            fields:
+                              - label: Conteúdo
+                                name: blurbs
+                                widget: list
+                                required: false
+                                fields:
+                                  - label: Descrição
+                                    name: text
+                                    widget: text
+                                    required: false
+                                  - label: Imagem
+                                    name: image
+                                    widget: image
+                                    required: false
+                          - label: id
+                            name: id
+                            widget: string
+                            required: false
+                          - label: url
+                            name: url
+                            widget: string
+                            required: false
+                          - label: urlBack
+                            name: urlBack
+                            widget: string
+                            required: false
+                          - label: key
+                            name: key
+                            widget: string
+                            required: false
+                          - label: back
+                            name: back
+                            widget: string
+                            required: false
+                      - label: PDF
+                        name: pdf
+                        widget: object
+                        required: false
+                        fields:                         
+                          - label: IDGoogleDoc
+                            name: idPdf
+                            widget: string
+                            required: false
+                          - label: Title
+                            name: title
+                            widget: string
+                            required: false
+                          - label: ID
+                            name: idDiv
+                            widget: string
+                            required: false
+                          - label: url
+                            name: url
+                            widget: string
+                            required: false
+                          - label: urlBack
+                            name: urlBack
+                            widget: string
+                            required: false
+                          - label: Back
+                            name: back
+                            widget: string
+                            required: false
+                          - label: BookingForm
+                            name: contactform
+                            widget: object
+                            required: false
+                            fields:                         
+                              - label: Action
+                                name: action
+                                widget: string
+                                required: false                         
+                              - label: Dropline
+                                name: dropline
+                                widget: string
+                                required: false                         
+                              - label: Name
+                                name: name
+                                widget: string
+                                required: false                         
+                              - label: Email
+                                name: email
+                                widget: string
+                                required: false                         
+                              - label: Pax
+                                name: pax
+                                widget: string
+                                required: false                         
+                              - label: Options
+                                name: meals
+                                widget: string
+                                required: false                         
+                              - label: OptionsPlaceholder
+                                name: mealsplaceholder
+                                widget: string
+                                required: false                         
+                              - label: Submit
+                                name: submit
+                                widget: string
+                                required: false
+  
+      - file: "site/content/_index.en.md"
+        label: "Home Page EN"
+        name: "homeEN"
+        fields:
+          - {label: Title, name: title, widget: string, required: false}
+          - {label: Image Title, name: jumbotitle, widget: string, required: false}
+          - {label: Image Subtitle, name: jumbosubtitle, widget: string, required: false}
+          - {label: Subtitle, name: subtitle, widget: string, required: false}
+          - {label: Image, name: image, widget: image, required: false}
+          - {label: "Blurb", name: blurb, widget: object, fields: [
+              {label: "Text", name: "text", widget: "text", required: false}]}
+          - label: Services
+            name: services
+            widget: object
+            required: false
+            fields:
+              - label: Linhas
+                name: rows
+                widget: list
+                required: false
+                fields:
+                  - label: Serviços
+                    name: items
+                    widget: list
+                    required: false
+                    fields: 
+                      - label: Serviço
+                        name: heading
+                        widget: text
+                        required: false
+                      - label: Imagem
+                        name: image
+                        widget: image
+                        required: false
+                      - label: key
+                        name: key
+                        widget: string
+                        required: false
+                      - label: Slideshow
+                        name: carouselslides
+                        widget: list
+                        required: false
+                        fields: 
+                          - label: Imagem
+                            name: image
+                            widget: image
+                            required: false
+                      - label: Conteúdo
+                        name: content
+                        widget: text
+                        required: false
+                      - label: Conteúdo Grelha
+                        name: intro
+                        widget: object
+                        required: false
+                        fields:
+                          - label: Conteúdo
+                            name: blurbs
+                            widget: list
+                            required: false
+                            fields:
+                              - label: Descrição
+                                name: text
+                                widget: text
+                                required: false
+                              - label: Imagem
+                                name: image
+                                widget: image
+                                required: false
+                                
+                      - label: Tem subserviços 
+                        name: hasavailableoffices
+                        widget: boolean
+                        required: false
+                      - label: SubServiço
+                        name: availableOffices
+                        widget: list
+                        required: false
+                        fields: 
+                          - label: SubServiço
+                            name: title
+                            widget: text
+                            required: false
+                          - label: Sem SubServiço
+                            name: nooffice
+                            widget: text
+                            required: false
+                          - label: Slideshow
+                            name: carouselslides
+                            widget: list
+                            required: false
+                            fields: 
+                              - label: Heading
+                                name: heading
+                                widget: string
+                                required: false
+                              - label: Imagem
+                                name: image
+                                widget: image
+                                required: false
+                          - label: Conteúdo
+                            name: content
+                            widget: text
+                            required: false
+                          - label: Conteúdo Grelha
+                            name: intro
+                            widget: object
+                            required: false
+                            fields:
+                              - label: Conteúdo
+                                name: blurbs
+                                widget: list
+                                required: false
+                                fields:
+                                  - label: Descrição
+                                    name: text
+                                    widget: text
+                                    required: false
+                                  - label: Imagem
+                                    name: image
+                                    widget: image
+                                    required: false
+                          - label: id
+                            name: id
+                            widget: string
+                            required: false
+                          - label: url
+                            name: url
+                            widget: string
+                            required: false
+                          - label: urlBack
+                            name: urlBack
+                            widget: string
+                            required: false
+                          - label: key
+                            name: key
+                            widget: string
+                            required: false
+                          - label: back
+                            name: back
+                            widget: string
+                            required: false
+                      - label: PDF
+                        name: pdf
+                        widget: object
+                        required: false
+                        fields:                         
+                          - label: IDGoogleDoc
+                            name: idPdf
+                            widget: string
+                            required: false
+                          - label: Title
+                            name: title
+                            widget: string
+                            required: false
+                          - label: ID
+                            name: idDiv
+                            widget: string
+                            required: false
+                          - label: url
+                            name: url
+                            widget: string
+                            required: false
+                          - label: urlBack
+                            name: urlBack
+                            widget: string
+                            required: false
+                          - label: Back
+                            name: back
+                            widget: string
+                            required: false
+                          - label: BookingForm
+                            name: contactform
+                            widget: object
+                            required: false
+                            fields:                         
+                              - label: Action
+                                name: action
+                                widget: string
+                                required: false                         
+                              - label: Dropline
+                                name: dropline
+                                widget: string
+                                required: false                         
+                              - label: Name
+                                name: name
+                                widget: string
+                                required: false                         
+                              - label: Email
+                                name: email
+                                widget: string
+                                required: false                         
+                              - label: Pax
+                                name: pax
+                                widget: string
+                                required: false                         
+                              - label: Options
+                                name: meals
+                                widget: string
+                                required: false                         
+                              - label: OptionsPlaceholder
+                                name: mealsplaceholder
+                                widget: string
+                                required: false                         
+                              - label: Submit
+                                name: submit
+                                widget: string
+                                required: false
+  - name: "companies"
+    label: "Companies"
+    files:
+      - file: "site/content/companies/_index.pt.md"
+        label: "Companies Page PT"
+        name: "companiesEn"
+        fields:
+          - {label: Title, name: title, widget: string, required: false}
+          - {label: "Image Title", name: "jumbotitle", widget: "string", required: false}
+          - {label: Image, name: image, widget: image, required: false}
+          - label: Values
+            name: values
+            widget: list
+            required: false
+            fields:
+              - {label: Title, name: heading, widget: string, required: false}
+              - {label: Website, name: web, widget: string, required: false}
+              - {label: Email, name: email, widget: string, required: false}
+              - {label: Text, name: text, widget: text, required: false}
+              - {label: Image, name: imageUrl, widget: image, required: false}
+ 
+      - file: "site/content/companies/_index.en.md"
+        label: "Companies Page EN"
+        name: "companiesPt"
+        fields:
+          - {label: Title, name: title, widget: string, required: false}
+          - {label: "Image Title", name: "jumbotitle", widget: "string", required: false}
+          - {label: Image, name: image, widget: image, required: false}
+          - label: Values
+            name: values
+            widget: list
+            required: false
+            fields:
+              - {label: Title, name: heading, widget: string, required: false}
+              - {label: Website, name: web, widget: string, required: false}
+              - {label: Email, name: email, widget: string, required: false}
+              - {label: Text, name: text, widget: text, required: false}
+              - {label: Image, name: imageUrl, widget: image, required: false}
+  - name: "newsPT" # Used in routes, ie.: /admin/collections/:slug/edit
+    label: "News PT" # Used in the UI, ie.: "New Post"
+    folder: "site/content/news/posts/pt" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    #filter: {field: "language", value: "pt"}
+    fields: # The fields each document in this collection have
+      #- {label: "Language", name: "language", widget: "select", options: ["pt", "en"]}
+      - {label: "Title", name: "title", widget: "string", required: false}
+      - {label: "Publish Date", name: "date", widget: "datetime", required: false}
+      - {label: "Intro Blurb", name: "description", widget: "text", required: false}
+      - {label: "Image", name: "image", widget: "image", required: false}
+      - {label: "Body", name: "body", widget: "markdown", required: false}
+  - name: "newsEN" # Used in routes, ie.: /admin/collections/:slug/edit
+    label: "News EN" # Used in the UI, ie.: "New Post"
+    folder: "site/content/news/posts/en" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    #filter: {field: "language", value: "en"}
+    fields: # The fields each document in this collection have
+      #- {label: "Language", name: "language", widget: "select", options: ["pt", "en"]}
+      - {label: "Title", name: "title", widget: "string", required: false}
+      - {label: "Publish Date", name: "date", widget: "datetime", required: false}
+      - {label: "Intro Blurb", name: "description", widget: "text", required: false}
+      - {label: "Image", name: "image", widget: "image", required: false}
+      - {label: "Body", name: "body", widget: "markdown", required: false}
+  - name: "about"
+    label: "About"
+    files:
+      - file: "site/content/about/_index.pt.md"
+        label: "About Page PT"
+        name: "AboutPT"
+        fields:
+          - {label: Title, name: title, widget: string, required: false}
+          - {label: Body, name: body, widget: markdown, required: false}
+          - {label: Slideshow, name: carouselslides, widget: list, required: false, fields: [
+              {label: Image, name: image, widget: image, required: false},
+              {label: Video, name: url, widget: text, required: false}
+              ]}
+  
+      - file: "site/content/about/_index.en.md"
+        label: "About Page EN"
+        name: "AboutEN"
+        fields:
+          - {label: Title, name: title, widget: string, required: false}
+          - {label: Body, name: body, widget: markdown, required: false}
+          - {label: Slideshow, name: carouselslides, widget: list, required: false, fields: [
+              {label: Image, name: image, widget: image, required: false},
+              {label: Video, name: url, widget: text, required: false}]}
+  - name: "contact"
+    label: "Contact"
+    files:
+      - file: "site/content/contact/_index.pt.md"
+        label: "Contact Page PT"
+        name: "contactPT"
+        fields:
+          - {label: Title, name: title, widget: string, required: false}
+          - label: Contacts
+            name: contacts
+            widget: list
+            required: false
+            fields:
+              - label: Heading
+                name: text
+                widget: string
+                required: false
+              - label: Url
+                name: url
+                widget: string
+                required: false
+              - label: UrlValue
+                name: urlValue
+                widget: string
+                required: false
+              - label: Value
+                name: value
+                widget: string
+                required: false
+          - label: Contact Entries
+            name: contact_entries
+            widget: list
+            required: false
+            fields:
+              - label: Heading
+                name: heading
+                widget: string
+                required: false
+              - label: Text
+                name: text
+                widget: text
+                required: false
+      - file: "site/content/contact/_index.en.md"
+        label: "Contact Page EN"
+        name: "contactEN"
+        fields:
+          - {label: Title, name: title, widget: string, required: false}
+          - label: Contacts
+            name: contacts
+            widget: list
+            required: false
+            fields:
+              - label: Heading
+                name: text
+                widget: string
+                required: false
+              - label: Url
+                name: url
+                widget: string
+                required: false
+              - label: UrlValue
+                name: urlValue
+                widget: string
+                required: false
+              - label: Value
+                name: value
+                widget: string
+                required: false
+          - label: Contact Entries
+            name: contact_entries
+            widget: list
+            required: false
+            fields:
+              - label: Heading
+                name: heading
+                widget: string
+                required: false
+              - label: Text
+                name: text
+                widget: text
+                required: false

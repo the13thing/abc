@@ -1,0 +1,71 @@
+{{ $data := index .Site.Data .Site.Language.Lang }}
+<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white">
+	<div class="container">
+			<a id="logoNavLink" href="{{$data.resources.logoUrl}}" class="db h-100 w3 flex-none">
+				<img id="logoNav" src="{{$data.resources.logo}}" alt="ABC logo" class="br0 db mb0 w-200"/>
+			</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+			aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarResponsive">
+			<ul class="navbar-nav ml-auto">
+				{{ range $data.resources.nav }}
+					{{ if .dropdown }}
+						<li class="nav-item dropdown">
+						<a class="nav-link js-scroll-trigger" data-toggle="dropdown"  href="{{.value}}">{{.text}}</a>
+						<div class="dropdown-menu hashModalLink {{ .class}}">
+						{{ range .items }}
+							<a href="{{.value}}" class="dropdown-item">{{.text}}</a>
+						{{ end }}
+						</div>
+					{{ else }}
+					<li class="nav-item">
+					<a class="nav-link js-scroll-trigger" href="{{.value}}">{{.text}}</a>
+					{{ end }}
+					</li>
+				{{ end }}
+			</ul>
+		</div>
+	</div>
+</nav>
+<script>
+	// //CENTER LOGO FOR MOBILE
+	// $(".navbar-toggler-icon").click(function (e){
+	// 	if ($("#logoNavLink").attr("centered") == "false"){
+	// 		$("#logoNavLink").animate({"left": ($ (window). width () - ($("#logoNavLink").width () *3.2)) / 2 + "px"});
+	// 		$("#logoNavLink").attr("centered", "true");
+	// 	}
+	// 	else {
+	// 		$("#logoNavLink").animate({'left': '0px'});
+	// 		$("#logoNavLink").attr("centered", "false");		
+	// 	}
+	// });
+
+	$(document).ready(function() {
+		// ADD ACTIVE CLASS TO NAV ITEMS
+		var windowVal=window.location.pathname.split("/");
+		if (windowVal.length>=3 && windowVal[2].length > 0){
+			$('.nav-item').each(function (index,item){
+			var href = $(this).find('a').attr('href');
+			if (href.indexOf(windowVal[2]) >= 0 ){
+				$(this).addClass("active");
+			}
+			else {
+				$(this).removeClass("active");
+			}
+		});
+		}
+		else {
+			$('.nav-item').each(function (index,item){
+				var href = $(this).find('a').attr('href');
+				if (href == "services"){
+					$(this).addClass("active");
+				}
+				else {
+					$(this).removeClass("active");
+				}
+			});
+		}
+	});
+</script>

@@ -1,0 +1,6 @@
+<a href="{{ .Permalink }}" class="no-underline pa3 bg-white br1 mb2 db raise w-100 h5">
+	<h2 class="f4 b lh-title mb1 primary">{{ .Title }}</h2>
+	<p class="mid-gray f6 lh-title mb2">{{ .Date.Format "Mon, 2 Jan, 2006" }}</p>
+	<p class="mb0 f6">{{ .Description }}</p>
+	<p class="link b dib black mb0 fixed bottom-0 f6">{{ $data := index .Site.Data .Site.Language.Lang }}{{ $data.resources.resources.readmore}}</p>
+</a>

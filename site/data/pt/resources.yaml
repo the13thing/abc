@@ -1,0 +1,64 @@
+---
+logo: /img/abc/logoFull.png
+logoUrl: /pt
+nav:
+  - text: "Quem Somos"
+    value: "/pt/about"
+    dropdown: false
+  - text: "Serviços"
+    value: "services"
+    dropdown: true
+    class: "jumpToAnchor"
+    items:
+     - text: Escritórios
+       value: "/pt/#servicesOffice"
+     - text: Aluguer de Espaços
+       value: "/pt/#servicesSpace"
+     - text: Escritórios Virtuais
+       value: "/pt/#servicesVirtualOffice"
+     - text: Organização de Eventos
+       value: "/pt/#servicesEvent"
+     - text: Serviços de Apoio
+       value: "/pt/#servicesSupport"
+     - text: Restaurante
+       value: "/pt/#servicesRestaurant"
+  - text: "Empresas"
+    value: "/pt/companies"
+    dropdown: false
+  - text: "Notícias"
+    value: "/pt/news"
+    dropdown: false
+  - text: "Contactos"
+    value: "/pt/contact"
+    dropdown: false
+footer:
+  action: /pt/success
+  title: Subscreva o newsletter!
+  text: Receba novidades por email acerca do Aveiro Business Center!
+  email: O seu email
+  submit_email: Email
+  submit: Submeter
+  privacy: Política de Proteção de Dados
+  urlprivacy: /pt/privacy
+  facebook: https://www.facebook.com/aveirobusinesscenter
+  instagram: http://instagram.com/aveirobusinesscenter.oficial
+services:
+    heading: Serviços
+    title: Conheça os nossos serviços!
+    class: services
+resources:
+  back: "Voltar"
+  news: "Notícias"
+  readmore: "Ver mais"
+  next: Seguinte
+  previous: Anterior
+  close: Fechar
+contactform:
+  action: /pt/success
+  dropline: 'Entre em contacto connosco'
+  name: 'Nome'
+  email: 'Email'
+  message: 'Mensagem'
+  messageplaceholder: 'A sua mensagem'
+  submit: 'Submeter'
+---

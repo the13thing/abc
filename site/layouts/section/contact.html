@@ -1,0 +1,47 @@
+{{ define "main" }}
+
+<div class="bg-off-white">	
+		
+	<div class="center mw7 pv6 pl2">
+			<h4 class="f4 b lh-title mb2">{{ .Params.title }}</h4>
+			<div class="center mw7 pv3">
+			{{ range .Params.contacts }}
+			<span>{{.text}}:</span>
+			<a href="{{.url}}">{{.urlValue}}</a>
+			{{.value}}
+			<br>
+			{{ end }}
+			<div class="textAlignL pv2">
+				{{ partial "social-icon" (dict "link" "https://www.facebook.com/aveirobusinesscenter" "svg" "icons-facebook") }}
+				{{ partial "social-icon" (dict "link" "http://instagram.com/aveirobusinesscenter.oficial" "svg" "icons-instagram") }}	
+			</div>
+		</div>
+		{{ .Content }}
+		
+
+		<div>
+	        	{{ range first 1 .Params.contact_entries }}
+				<div>
+					<h4 class="f4 b lh-title mb2 primary">{{ .heading }}</h4>
+					<p>{{ .text | safeHTML }}</p>
+				</div>
+			{{ end }}
+		</div>
+		<div class="flex-ns mb3">
+	        	{{ range last 2 .Params.contact_entries }}
+				<div class="w-50">
+					<h4 class="f4 b lh-title mb2 primary">{{ .heading }}</h4>
+					<p>{{ .text | safeHTML }}</p>
+				</div>
+			{{ end }}
+		</div>
+		<div id="googleMapsDiv" class="google-maps center">
+				<iframe id="googleMapsIframe" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3030.236627922611!2d-8.5831938!3d40.580532!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x92b274d319eb4493!2sAveiro+Business+Center!5e0!3m2!1sen!2spt!4v1559924818993!5m2!1sen!2spt" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+			</div>
+			{{ $data := index .Site.Data .Site.Language.Lang }}
+		{{ partial "contact-form" $data.resources }}
+
+	</div>
+</div>
+
+{{ end }}
